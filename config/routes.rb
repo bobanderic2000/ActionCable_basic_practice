@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rooms
   get '/playgrounds/:id' => 'playgrounds#show'
   # resources playgrounds, only: :show
   root 'pages#index'
