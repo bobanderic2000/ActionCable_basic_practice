@@ -1,5 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
+  <div class="row">
+    <%# 聊天列表 %>
+    <div class="col-3">
+      <%= render 'form', room: Room.new %>
+      <hr>
+      <% @rooms.each do |room| %>
+        <%= link_to room do %>
+          <div class="card">
+            <div class="card-body">
+            <%= room.name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%# 聊天視窗 %>
+    <div class="col-9">
+    </div>
+  </div>
+</div>
+
+
 <h1>Rooms</h1>
 
 <table>
