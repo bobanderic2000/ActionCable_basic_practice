@@ -12,6 +12,7 @@ document.addEventListener('turbolinks:load', () => {
   
     disconnected() {
       // Called when the subscription has been terminated by the server
+      console.log('Bye bye~');
     },
   
     received(data) {

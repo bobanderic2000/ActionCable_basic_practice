@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <%# 聊天列表 %>
+    <div class="col-3">
+      <p>Hello, <%= current_user.username %></p>
+      <%= render 'form', room: Room.new %>
+      <hr>
+      <% @rooms.each do |room| %>
+        <%= link_to room do %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <%= room.name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%# 聊天視窗 %>
+    <div class="col-9">
+      <% if @room.present? %>
+        <div class="chat-room">
+          <p><%= @room.name  %></p>
+          <% @room.messages.each do |message| %>
+            <p><%= message.content %></p>
+          <% end %>
+          <div class="chat-box">
+            <%= render 'messages/form', message: Message.new, room: @room %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
